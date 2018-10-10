@@ -134,9 +134,9 @@ function generateColors(numColors){
 /** returns array of three random numbers, ranging from 0-255 */
 function threeRGBnums(){
     var red = Math.floor(Math.random()*256);
-    var blue = Math.floor(Math.random()*256);
     var green = Math.floor(Math.random()*256);
-    return [red, blue, green];
+    var blue = Math.floor(Math.random()*256);
+    return [red, green, blue];
 }
 
 /**returns the string of a random rgb value, formatted for CSS */
@@ -145,14 +145,14 @@ function getRandomColor(){
     return "rgb(" + rgbs[0] + ", "+ rgbs[1] + ", " + rgbs[2] + ")";
 }
 
-/** this function returns a color which is very similiar to the one in given rbg form */
+/** this function returns a color which is very similiar to the one in given rgb form */
 function getRandomSimilarColor(r, g, b){
     var negate = randomNegative();
-    var red = Math.abs(r + (negate)*Math.floor(Math.random()*delta));
+    var red = Math.abs(r - (negate)*Math.floor(Math.random()*delta));
     var negate = randomNegative();
-    var green = Math.abs(b - (negate)*Math.floor(Math.random()*delta));
+    var green = Math.abs(g - (negate)*Math.floor(Math.random()*delta));
     var negate = randomNegative();
-    var blue = Math.abs(g - (negate)*Math.floor(Math.random()*delta));
+    var blue = Math.abs(b - (negate)*Math.floor(Math.random()*delta));
 
     // make sure values dont surpass 255
     var colorlist = [red, green, blue];
